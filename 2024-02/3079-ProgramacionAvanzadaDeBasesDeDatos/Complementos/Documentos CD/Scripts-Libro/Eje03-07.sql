@@ -1,0 +1,10 @@
+USE QhatuPERU
+go
+
+ALTER TABLE TIENDA
+	ADD CONSTRAINT PK_TIENDA
+	PRIMARY KEY( CodTienda )
+go
+
+sp_help TIENDA
+go

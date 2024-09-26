@@ -1,0 +1,12 @@
+USE QhatuPERU
+go
+
+SELECT LINEA.NomLinea, ARTICULO.CodArticulo,
+	ARTICULO.DescripcionArticulo,
+	ARTICULO.Presentacion, ARTICULO.PrecioProveedor,
+	PROVEEDOR.NomProveedor
+FROM LINEA INNER JOIN ARTICULO
+	ON LINEA.CodLinea = ARTICULO.CodLinea
+INNER JOIN PROVEEDOR
+	ON ARTICULO.CodProveedor = PROVEEDOR.CodProveedor
+go

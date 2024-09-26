@@ -1,0 +1,7 @@
+USE QhatuPERU
+go
+
+SELECT LINEA.Descripcion, ARTICULO.DescripcionArticulo
+FROM LINEA CROSS JOIN ARTICULO
+ORDER BY LINEA.Descripcion
+go

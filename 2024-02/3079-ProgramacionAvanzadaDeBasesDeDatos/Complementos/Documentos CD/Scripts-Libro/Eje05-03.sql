@@ -1,0 +1,7 @@
+USE QhatuPERU
+go
+
+SELECT * FROM ARTICULO
+go
+
+

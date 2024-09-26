@@ -1,0 +1,12 @@
+USE QhatuPERU
+go
+
+ALTER TABLE LINEA
+	ADD CONSTRAINT U_Linea_NomLinea
+	UNIQUE( NomLinea )
+go
+
+INSERT INTO LINEA
+	VALUES('HIGIENE PERSONAL','Por definir')
+go
+

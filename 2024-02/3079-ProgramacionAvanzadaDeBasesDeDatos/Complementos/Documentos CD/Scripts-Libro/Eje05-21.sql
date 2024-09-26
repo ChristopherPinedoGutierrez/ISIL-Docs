@@ -1,0 +1,24 @@
+USE QhatuPERU
+go
+
+SELECT NumGuia, FechaSalida
+FROM GUIA_ENVIO
+ORDER BY FechaSalida
+go
+
+SET DATEFORMAT DMY
+go
+
+SELECT NumGuia, FechaSalida
+FROM GUIA_ENVIO
+WHERE FechaSalida BETWEEN '25/03/2013' AND '05/04/2013'
+ORDER BY FechaSalida
+go
+
+SELECT NumGuia, FechaSalida
+FROM GUIA_ENVIO
+WHERE FechaSalida BETWEEN '25/03/2013'
+	AND '05/04/2013 23:59:59.999'
+ORDER BY FechaSalida
+go
+

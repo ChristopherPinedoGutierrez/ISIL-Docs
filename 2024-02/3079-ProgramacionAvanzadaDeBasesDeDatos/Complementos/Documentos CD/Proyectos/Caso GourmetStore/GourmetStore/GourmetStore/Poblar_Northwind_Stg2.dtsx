@@ -1,0 +1,2307 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/14/2013 12:12:53 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SMATSUKAWA-LAP"
+  DTS:CreatorName="SMATSUKAWA-LAP\SMATSUKAWA"
+  DTS:DTSID="{3FB9C9BC-955B-4C6C-A966-50A4BA392FCC}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Poblar_Northwind_Stg2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{AFDBD7FB-7DA4-4181-B456-D917D271D091}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D26835D8-6489-43A3-BDAA-10C83DFA1D90}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\LibroSQLServer2012\Proyectos\Caso GourmetStore\Data\VentasMP-95.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Poblar_Cliente_Stg"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{4EE7BB9F-444E-4C90-9F33-E8A04D7F3DB4}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Poblar_Cliente_Stg"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Cargar_Cliente_Stg"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Cliente_Stg]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Connections[OleDbConnection]"
+                  connectionManagerID="{7F9F1470-822A-4B24-BB98-BAF2770C7F13}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Northwind_Stg]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].Columns[Copia de codCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Copia de codCliente"
+                      externalMetadataColumnId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCliente]"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de codCliente]" />
+                    <inputColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].Columns[Copia de nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copia de nombre"
+                      externalMetadataColumnId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[nomCliente]"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de nombre]" />
+                    <inputColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].Columns[Copia de pais]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Copia de pais"
+                      externalMetadataColumnId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[pais]"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de pais]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[skCliente]"
+                      dataType="i4"
+                      name="skCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCliente]"
+                      dataType="wstr"
+                      length="5"
+                      name="idCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[nomCliente]"
+                      dataType="wstr"
+                      length="40"
+                      name="nomCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[pais]"
+                      dataType="wstr"
+                      length="15"
+                      name="pais" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Poblar_Cliente_Stg\Conversión de datos"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Poblar_Cliente_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[codCliente]"
+                      cachedDataType="r8"
+                      cachedName="codCliente"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[codCliente]" />
+                    <inputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[pais]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pais"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[pais]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Poblar_Cliente_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de codCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de codCliente]"
+                      name="Copia de codCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[codCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de nombre]"
+                      name="Copia de nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de pais]"
+                      name="Copia de pais"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[pais]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Poblar_Cliente_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Poblar_Cliente_Stg\Leer_Clientes"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Leer_Clientes"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Clientes$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[codCliente]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[codCliente]"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[codCliente]"
+                      name="codCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[nombre]"
+                      length="255"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[pais]"
+                      length="255"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].Columns[pais]"
+                      name="pais"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[codCliente]"
+                      dataType="r8"
+                      name="codCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[direccion]"
+                      dataType="wstr"
+                      length="255"
+                      name="direccion" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[distrito]"
+                      dataType="wstr"
+                      length="255"
+                      name="distrito" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel].ExternalColumns[pais]"
+                      dataType="wstr"
+                      length="255"
+                      name="pais" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[codCliente]"
+                      dataType="r8"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[codCliente]"
+                      name="codCliente" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[pais]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de error de origen de Excel].Columns[pais]"
+                      name="pais" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Poblar_Cliente_Stg.Paths[Salida de conversión de datos]"
+              endId="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Poblar_Cliente_Stg\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Poblar_Cliente_Stg.Paths[Salida de origen de Excel]"
+              endId="Package\Poblar_Cliente_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Poblar_Cliente_Stg\Leer_Clientes.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Poblar_Tiempo_Stg"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{7D8861FD-FD41-4B56-B270-689BBAEDF521}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Poblar_Tiempo_Stg"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Cargar_Tiempo_Stg"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Tiempo_Stg]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Connections[OleDbConnection]"
+                  connectionManagerID="{7F9F1470-822A-4B24-BB98-BAF2770C7F13}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Northwind_Stg]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].Columns[cMes]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="cMes"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[cmes]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0].Columns[cMes]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].Columns[cTrimestre]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="cTrimestre"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[ctrimestre]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0].Columns[cTrimestre]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].Columns[nFecha]"
+                      cachedDataType="dbDate"
+                      cachedName="nFecha"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[fecha]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nFecha]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].Columns[nDia]"
+                      cachedDataType="ui4"
+                      cachedName="nDia"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[dia]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nDia]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].Columns[nTrimestre]"
+                      cachedDataType="ui4"
+                      cachedName="nTrimestre"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[trimestre]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nTrimestre]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].Columns[nMes]"
+                      cachedDataType="ui4"
+                      cachedName="nMes"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[mes]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nMes]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].Columns[nAño]"
+                      cachedDataType="ui4"
+                      cachedName="nAño"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[año]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nAño]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[skTiempo]"
+                      dataType="i4"
+                      name="skTiempo" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[fecha]"
+                      dataType="dbDate"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[dia]"
+                      dataType="i4"
+                      name="dia" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[mes]"
+                      dataType="i4"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[trimestre]"
+                      dataType="i4"
+                      name="trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[año]"
+                      dataType="i4"
+                      name="año" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[cmes]"
+                      dataType="wstr"
+                      length="10"
+                      name="cmes" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB].ExternalColumns[ctrimestre]"
+                      dataType="wstr"
+                      length="15"
+                      name="ctrimestre" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Poblar_Tiempo_Stg\Componente de script"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Incluye y ejecuta código de scripts personalizados. Por ejemplo, se usa para aplicar una regla de negocios que limita el intervalo de valores válidos de una columna de ingresos o para sumar los valores de dos columnas y calcular el promedio de la suma.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;8"
+              description="Incluye y ejecuta código de scripts personalizados. Por ejemplo, se usa para aplicar una regla de negocios que limita el intervalo de valores válidos de una columna de ingresos o para sumar los valores de dos columnas y calcular el promedio de la suma."
+              name="Componente de script"
+              version="8">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Almacena el código fuente del componente"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Entrada0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public ReadOnly Property [nMes]() As UInt32
+        Get
+            Return Buffer.GetUInt32(Me.BufferColumnIndexes(0))
+        End Get
+    End Property
+    Public ReadOnly Property [nMes_IsNull] As Boolean
+        Get
+            Return IsNull(0)
+        End Get
+    End Property
+
+    Public ReadOnly Property [nTrimestre]() As UInt32
+        Get
+            Return Buffer.GetUInt32(Me.BufferColumnIndexes(1))
+        End Get
+    End Property
+    Public ReadOnly Property [nTrimestre_IsNull] As Boolean
+        Get
+            Return IsNull(1)
+        End Get
+    End Property
+
+    Public WriteOnly Property [cMes]() As String
+        Set
+            Me(2) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [cMes_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(2)
+            Else
+                Throw new InvalidOperationException("La propiedad IsNull no puede establecerse en False. En su lugar, asigne un valor a la columna.")
+            End If
+        End Set
+    End Property
+
+    Public WriteOnly Property [cTrimestre]() As String
+        Set
+            Me(3) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [cTrimestre_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(3)
+            Else
+                Throw new InvalidOperationException("La propiedad IsNull no puede establecerse en False. En su lugar, asigne un valor a la columna.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Function NextRow() As Boolean
+        NextRow = MyBase.NextRow()
+    End Function
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#Region "Help:  Introduction to the Script Component"
+' The Script Component allows you to perform virtually any operation that can be accomplished in
+' a .Net application within the context of an Integration Services data flow.
+
+' Expand the other regions which have "Help" prefixes for examples of specific ways to use
+' Integration Services features within this script component.
+#End Region
+
+#Region "Imports"
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+#End Region
+
+' This is the class to which to add your code.  Do not change the name, attributes, or parent
+' of this class.
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute> _
+<CLSCompliant(False)> _
+Public Class ScriptMain
+    Inherits UserComponent
+
+#Region "Help:  Using Integration Services variables and parameters"
+    'To use a variable in this script, first ensure that the variable has been added to
+    'either the list contained in the ReadOnlyVariables property or the list contained in
+    'the ReadWriteVariables property of this script component, according to whether or not your
+    'code needs to write into the variable.  To do so, save this script, close this instance of
+    'Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties.
+    'To use a parameter in this script, follow the same steps. Parameters are always read-only.
+
+    'Example of reading from a variable or parameter:
+    ' startTime = Variables.MyStartTime;
+
+    'Example of writing to a variable:
+    ' Variables.myStringVariable = "new value";
+#End Region
+
+#Region "Help:  Using Integration Services Connnection Managers"
+    'Some types of connection managers can be used in this script component.  See the help topic
+    '"Working with Connection Managers Programatically" for details.
+
+    'To use a connection manager in this script, first ensure that the connection manager has
+    'been added to either the list of connection managers on the Connection Managers page of the
+    'script component editor.  To add the connection manager, save this script, close this instance of
+    ' Visual Studio, and add the Connection Manager to the list.
+
+    'If the component needs to hold a connection open while processing rows, override the
+    'AcquireConnections and ReleaseConnections methods.
+
+    'Example of using an ADO.Net connection manager to acquire a SqlConnection:
+    ' Dim rawConnection As Object = Connections.SalesDB.AcquireConnection(Transaction)
+    ' Dim salesDBConn As SqlConnection = CType(rawConnection, SqlConnection)
+
+    'Example of using a File connection manager to acquire a file path:
+    ' Dim rawConnection As Object = Connections.Prices_zip.AcquireConnection(Transaction)
+    ' Dim filePath As String = CType(rawConnection, String)
+
+    'Example of releasing a connection manager:
+    ' Connections.SalesDB.ReleaseConnection(rawConnection)
+#End Region
+
+#Region "Help:  Firing Integration Services Events"
+    'This script component can fire events.
+
+    'Example of firing an error event:
+    ' ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, cancel)
+
+    'Example of firing an information event:
+    ' ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain)
+
+    'Example of firing a warning event:
+    ' ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0)
+
+#End Region
+
+    'This method is called once, before rows begin to be processed in the data flow.
+    '
+    'You can remove this method if you don't need to do anything here.
+    Public Overrides Sub PreExecute()
+        MyBase.PreExecute()
+        '
+        ' Add your code here
+        '
+    End Sub
+
+    ' This method is called after all the rows have passed through this component.
+    '
+    ' You can delete this method if you don't need to do anything here.
+    Public Overrides Sub PostExecute()
+        MyBase.PostExecute()
+        '
+        ' Add your code here
+        '
+    End Sub
+
+    'This method is called once for every row that passes through the component from Entrada0.
+    '
+    'Example of reading a value from a column in the the row:
+    ' zipCode = Row.ZipCode
+    '
+    'Example of writing a value to a column in the row:
+    ' Row.ZipCode = zipCode
+    Public Overrides Sub Entrada0_ProcessInputRow(ByVal Row As Entrada0Buffer)
+        Select Case CType(Row.nTrimestre, Integer)
+            Case 1
+                Row.cTrimestre = "1er Trimestre"
+            Case 2
+                Row.cTrimestre = "2do Trimestre"
+            Case 3
+                Row.cTrimestre = "3er Trimestre"
+            Case 4
+                Row.cTrimestre = "4to Trimestre"
+        End Select
+
+        Select Case CType(Row.nMes, Integer)
+            Case 1
+                Row.cMes = "Enero"
+            Case 2
+                Row.cMes = "Febrero"
+            Case 3
+                Row.cMes = "Marzo"
+            Case 4
+                Row.cMes = "Abril"
+            Case 5
+                Row.cMes = "Mayo"
+            Case 6
+                Row.cMes = "Junio"
+            Case 7
+                Row.cMes = "Julio"
+            Case 8
+                Row.cMes = "Agosto"
+            Case 9
+                Row.cMes = "Septiembre"
+            Case 10
+                Row.cMes = "Octubre"
+            Case 11
+                Row.cMes = "Noviembre"
+            Case 12
+                Row.cMes = "Diciembre"
+        End Select
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_c0d3de79df0c420284b5d12bef6d4ea2")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("SC_c0d3de79df0c420284b5d12bef6d4ea2")> 
+<Assembly: AssemblyCopyright("Copyright @  2013")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("9bc4265b-9e0c-4532-bc60-d8c92429e184")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public Overrides Sub ProcessInput(ByVal InputID As Integer, ByVal InputName As String, ByVal Buffer As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        If InputName.Equals("Entrada 0", StringComparison.Ordinal) Then
+            Entrada0_ProcessInput(New Entrada0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap))
+        End If
+
+    End Sub
+
+    Public Overridable Sub Entrada0_ProcessInput(ByVal Buffer As Entrada0Buffer)
+
+        While Buffer.NextRow()
+            Entrada0_ProcessInputRow(Buffer)
+        End While
+
+    End Sub
+
+    Public Overridable Sub Entrada0_ProcessInputRow(ByVal Row As Entrada0Buffer)
+
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_c0d3de79df0c420284b5d12bef6d4ea2.vbproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C10FAB4-FC75-4453-97E4-34AF87FF7795}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>My Project</AppDesignerFolder>
+    <RootNamespace>SC_c0d3de79df0c420284b5d12bef6d4ea2</RootNamespace>
+    <AssemblyName>SC_c0d3de79df0c420284b5d12bef6d4ea2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.vb" />
+    <Compile Include="BufferWrapper.vb" />
+    <Compile Include="ComponentWrapper.vb" />
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="devenv.exe" DebugInfoCommandLine="/vstaHostDebugUri:&quot;vstadebugc8c6af86-2942-453a-a61a-4b9882cb026c/a1c44d13-5246-470d-bcf8-e82d0f1b1d27&quot;" />
+        <Host Name="SSIS_SC110" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC110</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>SC_c0d3de79df0c420284b5d12bef6d4ea2</msb:CodeName>
+		<msb:DisplayName>SC_c0d3de79df0c420284b5d12bef6d4ea2</msb:DisplayName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:ProjectId>{DF39813F-87CB-40B4-AD75-EBC8D811BE83}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="SC_c0d3de79df0c420284b5d12bef6d4ea2.vbproj"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="My Project\Settings.settings"/>
+		<msb:File Include="main.vb"/>
+		<msb:File Include="BufferWrapper.vb"/>
+		<msb:File Include="ComponentWrapper.vb"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Almacena la representación binaria del componente"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_c0d3de79df0c420284b5d12bef6d4ea2.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAJvoEFIAAAAAAAAAAOAAAiELAQgAACIAAAAGAAAAAAAA3kEA
+AAAgAAAAYAAAAABAAAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACgAAAAAgAAAAAAAAIAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIhBAABTAAAAAGAAANgDAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA5CEAAAAgAAAAIgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAANgDAAAAYAAAAAQAAAAkAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAAKAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADA
+QQAAAAAAAEgAAAACAAUAMCYAAFgbAAABAAAAAAAAAHglAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKAEAAAoqHgIoBAAACiqmcwYAAAqAAQAABHMHAAAKgAIA
+AARzCAAACoADAAAEcwkAAAqABAAABCoAABMwAQALAAAAAQAAEX4BAAAEbwoAAAoqABMwAQALAAAA
+AgAAEX4CAAAEbwsAAAoqABMwAQALAAAAAwAAEX4DAAAEbwwAAAoqABMwAQALAAAABAAAEX4EAAAE
+bw0AAAoqABMwAgANAAAABQAAEQIDKBEAAAooEgAACioAAAATMAEABwAAAAYAABECKBMAAAoqABMw
+AQALAAAABwAAEdAFAAACKBQAAAoqABMwAQAHAAAACAAAEQIoFQAACioAEzABABAAAAAJAAARAowB
+AAAbLQYoAQAAKyoCKhMwAgAQAAAACgAAEQMSAP4VAgAAGwaBAgAAGyoeAigXAAAKKhMwAgAoAAAA
+CwAAEQJ7GQAACm8aAAAKCweMAwAAGy0SKAIAACsLAnsZAAAKB28bAAAKBypKAigXAAAKAnMcAAAK
+fRkAAAoqACoCAwQFKB4AAAoqABMwAwAUAAAADAAAEQJ7HwAACgJ7IAAAChaUbyEAAAoqEzACAAgA
+AAANAAARAhZvIgAACioTMAMAFAAAAA4AABECex8AAAoCeyAAAAoXlG8hAAAKKhMwAgAIAAAADwAA
+EQIXbyIAAAoqJgIYA28jAAAKKgAAYgMsCQIYbyQAAAorC3IBAABwcyUAAAp6KgAAACYCGQNvIwAA
+CioAAGIDLAkCGW8kAAAKKwtyAQAAcHMlAAAKeioAAAATMAEACQAAABAAABECKCYAAAoKBioAAAAT
+MAEACQAAABEAABECKCcAAAoKBioAAAB+AigpAAAKAgJzIAAABn0GAAAEAgJzIQAABn0HAAAEKpIE
+csAAAHAabyoAAAosFQIFAgNvKwAACg4EcxEAAAZvHgAABioAAABKKwcCA28fAAAGA28aAAAGLfEq
+AAYqAAA6AigXAAAKAgN9CAAABCoAOgIoFwAACgIDfQkAAAQqAB4CKBwAAAYqHgIoLAAACioeAigt
+AAAKKhMwAgA2AQAAEgAAEQNvFAAABoQXWUUEAAAAAgAAAA8AAAAcAAAAKQAAACsyA3LUAABwbxgA
+AAYrJQNy8AAAcG8YAAAGKxgDcgwBAHBvGAAABisLA3IoAQBwbxgAAAYDbxIAAAaEF1lFDAAAAAUA
+AAAVAAAAJQAAADIAAAA/AAAATAAAAFkAAABmAAAAcwAAAIAAAACNAAAAmgAAADigAAAAA3JEAQBw
+bxYAAAY4kAAAAANyUAEAcG8WAAAGOIAAAAADcmABAHBvFgAABitzA3JsAQBwbxYAAAYrZgNyeAEA
+cG8WAAAGK1kDcoIBAHBvFgAABitMA3KOAQBwbxYAAAYrPwNymgEAcG8WAAAGKzIDcqgBAHBvFgAA
+BislA3K+AQBwbxYAAAYrGANyzgEAcG8WAAAGKwsDcuIBAHBvFgAABioAAB4CKBcAAAoqEzACAC0A
+AAATAAARfgoAAAQtIHL2AQBw0AwAAAIoFAAACm8vAAAKczAAAAoLB4AKAAAEfgoAAAQqAAAAEzAB
+AAYAAAAUAAARfgsAAAQqAAAeAoALAAAEKkJzFwAACigRAAAKgA0AAAQqAAAAHgIoMQAACiobMAEA
+PwAAABUAABF+DAAABC0yfg0AAAQoEQAACigyAAAKfgwAAAQtHHMrAAAGgAwAAATeEH4NAAAEKBEA
+AAooMwAACtx+DAAABCoAARAAAAIAHQAMKQAQAAAAAbQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJl
+c291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVy
+ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJj
+ZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAABCU0pCAQABAAAAAAAM
+AAAAdjQuMC4zMDMxOQAAAAAFAGwAAAAECgAAI34AAHAKAADYCgAAI1N0cmluZ3MAAAAASBUAACgC
+AAAjVVMAcBcAABAAAAAjR1VJRAAAAIAXAADYAwAAI0Jsb2IAAAAAAAAAAgAAAVcVogkJDwAAAPol
+MwAWAAABAAAALAAAAA0AAAANAAAALAAAABQAAAA/AAAAPAAAABUAAAAFAAAAEAAAABEAAAAJAAAA
+AQAAAAUAAAABAAAAAgAAAAMAAAACAAAAAACvCgEAAAAAAAoAcAFGAQoApAGGAQYAtAGtAQoADAJG
+AQYAigKtAQoADAPiAg4AbwNOAxIAnQNOAw4ArANOAw4A0QROAwYAdQVkBQYAogWNBRYAAwbuBRYA
+UAY6BhYAaQY6BhYAlgZ+BgYAwAatBgoA/wbYBgoAFwcTABYATAcvBwYAgQdhBwYAnwetAQYAwwet
+AQoA3AcTAAYAIAgBCAYAVgitAQYAcAitAQYAhgitAQYAjQitAQ4ArwhOAwYA6AjWCAYADwn+CAYA
+IgmtBgYAdwlhBwYAlwlhBwYAzwm1CQYA6AnWCAYABQoBCAYAEwrWCAYALgrWCAYASQrWCAYAYgrW
+CAYAewrWCAYAmArWCAAAAAABAAAAAAABAAEAAAAAACkANwAFAAEAAQAAAAAAXgA3AAkAAQACAAAB
+EABpADcADQABAAMABQEAAHMAAAANAAUACAAFAQAAgQAAAA0ABQAPAAEAAACcAKsAHQAGABEAAQAA
+AM8AqwApAAYAHAABAAAA3QCrAA0ACAAgAAEAAADpAKsADQAJACEAAQAAAPMAqwAgAAoAIgAAAAAA
+/gAKAQ0ACgAmAAABEAA7AasANQAMACoAMQDPASAAMQD4AS0AMQAaAjoAMQA/AkcAIQAbA5AABgDd
+AM4ABgDpANIAAQAzBeYAAQAzBeYAEQCFBfAAEQCuBfQAEQAbBhIBEQAjBhYBUCAAAAAABhiAARMA
+AQBYIAAAAAAGGIABEwABAGAgAAAAABEYuwEXAAEAjCAAAAAAEwjCARsAAQCkIAAAAAATCOgBKAAB
+ALwgAAAAABMIEQI1AAEA1CAAAAAAEwgvAkIAAQDsIAAAAABGAnUCYwABAAghAAAAAEYCfgJoAAIA
+HCEAAAAAgwCPAmwAAgA0IQAAAABGApcCcQACAEghAAAAABEAoAJ4AAIAZCEAAAAAAQC+AoAAAwCA
+IQAAAAAGGIABEwAEAIghAAAAAAMI0gKLAAQAvCEAAAAABhiAARMABADQIQAAAAAGGIABpgAEANwh
+AAAAAAYI3wOwAAcA/CEAAAAABgjoA7QABwAQIgAAAAAGCPgDsAAHADAiAAAAAAYIBwS0AAcARCIA
+AAAABggdBLgABwBQIgAAAAAGCCwEvQAIAGwiAAAAAAYIPAS4AAkAeCIAAAAABghLBL0ACgCUIgAA
+AACGAGEEtAALAKwiAAAAAIYAaQS0AAsAxCIAAAAABhiAARMACwDkIgAAAABGAuEE1gALAAwjAAAA
+AEYDAAXgAA8AICMAAAAARgMWBeAAEAAkIwAAAAAGGIAB6gARADQjAAAAAAYYgAHqABIARCMAAAAA
+BhiAARMAEwBMIwAAAABGAk0FEwATAFQjAAAAAEYCWAUTABMAXCMAAAAARgIWBeAAEwCgJAAAAAAD
+GIABEwAUAKgkAAAAABYIugX4ABQA5CQAAAAAFgjOBf0AFAD4JAAAAAAWCNoFAgEUAAAlAAAAABEY
+uwEXABUAFCUAAAAABhiAARMAFQAcJQAAAAAWCDAGGQEVAAAAAQB8AgAAAQC1AgAAAQC1AgAAAQC6
+AwAAAgDBAwAAAwDVAwAAAQAmBAAAAQAmBAAAAQAmBAAAAQAmBAAAAQDuBAAAAgD2BAAAAwC6AwAA
+BADVAwAAAQC6AwAAAQAvBQAAAQBDBQAAAQBDBQAAAQAvBQAAAQAmBAkAgAETAHEAgAEjAYEAgAEy
+AREAgAETAIkAgAETACQAgAETACwAgAETADQAgAETADwAgAETACQA0gKLACwA0gKLADQA0gKLADwA
+0gKLAJEAgAETAJkAgAETAKEAgAG4AKkAkAfMARkAdQJjABkAfgJoACkAsQfZARkAlwJxALkAzQfp
+ARkAgAETAMEAgAH5AUQAGwOQAEwAMAaLAEwA9wd2AkwAgAETAMkAgAG9ADkAgAGmADkAugOLAjkA
+wQOPAkEANAiTAjkAPgicAjkARQihAjkATginAtEAgAG4ADkAYQS0ADkAaQS0ANkAgAG9AFEAgAET
+AOEAdQKsAlEAngizAlEATQUTAFEAWAUTAPEAgAETACkA8Qi+AlkAgAHDAmkAgAETAAEBFwnfAgEB
+HQnfAgkBgAETABEBgAGnAhkBgAETACEBgAG4ACkBgAG4ADEBgAG4ADkBgAG4AEEBgAG4AEkBgAG4
+AFEBgAG4AFkBgAG4AGEBgAG4ACkAgwCaAS4A6wGFAi4A4wGtAy4A2wGWAy4AswHyAi4AuwERAy4A
+0wGFAi4A+wGtAy4AqwHpAi4A8wGFAi4AwwFZAy4AywFmAy4A6wCFAi4AQwGQA0AAKwBRAUAAEwAp
+AUMAEwApAUMAGwA4AUkAgwC4AWMAGwA4AWMAEwApAWkAgwCrAYAAKwBRAYMAGwA4AYMAcwBRAYMA
+ewBRAYkAgwCGAaAAKwBRAaMAwwABAqMAEwApAcAAKwBRAcMA6wCFAsMAEwApAeAAKwBRAeMAQwGF
+AgABKwBRAQABEwApAQMBQwGFAiABKwBRASABEwApASMBQwGFAkABEwApAUABKwBRAUMBQwGFAmAB
+KwBRAWABEwApAWMBQwGFAmMBcwFRAYABKwBRAaABKwBRAcABEwApAcABKwBRAckBEwDWAuABKwBR
+AekBEwDWAgACEwApAQACKwBRAQkCowFRAQAEQwGFAiAEQwGFAnIBdwF8AYEB0QHVAeAB5QH0AfQB
+fAKYAtEBmALRAdEB0QG5AsoC0QLkAgQAAQAGAAUABwAGAAwADgANABAAAACkAU8AAABdAlQAAAAM
+AlkAAABpAl4AAAAlA5gAAAB1BMIAAAB6BMYAAACGBMIAAACRBMYAAACjBMoAAACoBMYAAAC0BMoA
+AAC/BMYAAAB1BQgBAADmBQ0BAAAmBB4BAgAEAAMAAgAFAAUAAgAGAAcAAgAHAAkAAgAPAAsAAgAS
+AA0AAgATAA8AAgAUABEAAgAVABMAAQAWABUAAQAXABcAAQAYABkAAQAZABsAAgAnAB0AAgAoAB8A
+AQApAB8AAgAsACEAdQB1AIgAVgFdAWQBawFjAmoCBIAAAAEAAAAAAAAAAAAAAAAAqwAAAAQAAAAA
+AAAAAAAAAAEACgAAAAAACgAAAAAAAAAAAAAACgATAAAAAAALAAAAAAAAAAAAAACdADEDAAAAAAsA
+AAAAAAAAAAAAAJ0AfAMAAAAABAAAAAAAAAAAAAAAAQCtAQAAAAAAAAAAAQAAAD8JAAAFAAQABgAE
+AAAAEAAMALMCAAAQABkAswIAAAAAGwCzAi0A7wEtAHECAAAAAAA8TW9kdWxlPgBtc2NvcmxpYgBN
+aWNyb3NvZnQuVmlzdWFsQmFzaWMATXlBcHBsaWNhdGlvbgBTQ19jMGQzZGU3OWRmMGM0MjAyODRi
+NWQxMmJlZjZkNGVhMi5NeQBNeUNvbXB1dGVyAE15UHJvamVjdABNeVdlYlNlcnZpY2VzAFRocmVh
+ZFNhZmVPYmplY3RQcm92aWRlcmAxAEVudHJhZGEwQnVmZmVyAFNDX2MwZDNkZTc5ZGYwYzQyMDI4
+NGI1ZDEyYmVmNmQ0ZWEyAFVzZXJDb21wb25lbnQAQ29ubmVjdGlvbnMAVmFyaWFibGVzAFNjcmlw
+dE1haW4ATXlSZXNvdXJjZXMAU0NfYzBkM2RlNzlkZjBjNDIwMjg0YjVkMTJiZWY2ZDRlYTIuTXku
+UmVzb3VyY2VzAE15U2V0dGluZ3MATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkFwcGxpY2F0aW9uU2Vy
+dmljZXMAQXBwbGljYXRpb25CYXNlAC5jdG9yAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5EZXZpY2Vz
+AENvbXB1dGVyAFN5c3RlbQBPYmplY3QALmNjdG9yAGdldF9Db21wdXRlcgBtX0NvbXB1dGVyT2Jq
+ZWN0UHJvdmlkZXIAZ2V0X0FwcGxpY2F0aW9uAG1fQXBwT2JqZWN0UHJvdmlkZXIAVXNlcgBnZXRf
+VXNlcgBtX1VzZXJPYmplY3RQcm92aWRlcgBnZXRfV2ViU2VydmljZXMAbV9NeVdlYlNlcnZpY2Vz
+T2JqZWN0UHJvdmlkZXIAQXBwbGljYXRpb24AV2ViU2VydmljZXMARXF1YWxzAG8AR2V0SGFzaENv
+ZGUAVHlwZQBHZXRUeXBlAFRvU3RyaW5nAENyZWF0ZV9fSW5zdGFuY2VfXwBUAGluc3RhbmNlAERp
+c3Bvc2VfX0luc3RhbmNlX18AZ2V0X0dldEluc3RhbmNlAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5N
+eVNlcnZpY2VzLkludGVybmFsAENvbnRleHRWYWx1ZWAxAG1fQ29udGV4dABHZXRJbnN0YW5jZQBN
+aWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVs
+aW5lAFNjcmlwdEJ1ZmZlcgBNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdABQaXBlbGlu
+ZUJ1ZmZlcgBPdXRwdXROYW1lTWFwAEJ1ZmZlcgBCdWZmZXJDb2x1bW5JbmRleGVzAE91dHB1dE1h
+cABnZXRfbk1lcwBnZXRfbk1lc19Jc051bGwAZ2V0X25UcmltZXN0cmUAZ2V0X25UcmltZXN0cmVf
+SXNOdWxsAHNldF9jTWVzAFZhbHVlAHNldF9jTWVzX0lzTnVsbABzZXRfY1RyaW1lc3RyZQBzZXRf
+Y1RyaW1lc3RyZV9Jc051bGwATmV4dFJvdwBFbmRPZlJvd3NldABuTWVzAG5NZXNfSXNOdWxsAG5U
+cmltZXN0cmUAblRyaW1lc3RyZV9Jc051bGwAY01lcwBjTWVzX0lzTnVsbABjVHJpbWVzdHJlAGNU
+cmltZXN0cmVfSXNOdWxsAFNjcmlwdENvbXBvbmVudABQcm9jZXNzSW5wdXQASW5wdXRJRABJbnB1
+dE5hbWUARW50cmFkYTBfUHJvY2Vzc0lucHV0AEVudHJhZGEwX1Byb2Nlc3NJbnB1dFJvdwBSb3cA
+UGFyZW50Q29tcG9uZW50AENvbXBvbmVudABQcmVFeGVjdXRlAFBvc3RFeGVjdXRlAFN5c3RlbS5S
+ZXNvdXJjZXMAUmVzb3VyY2VNYW5hZ2VyAF9yZXNNZ3IAU3lzdGVtLkdsb2JhbGl6YXRpb24AQ3Vs
+dHVyZUluZm8AX3Jlc0N1bHR1cmUAZ2V0X1Jlc291cmNlTWFuYWdlcgBnZXRfQ3VsdHVyZQBzZXRf
+Q3VsdHVyZQBDdWx0dXJlAFN5c3RlbS5Db25maWd1cmF0aW9uAEFwcGxpY2F0aW9uU2V0dGluZ3NC
+YXNlAG1fVmFsdWUAbV9TeW5jT2JqZWN0AGdldF9WYWx1ZQBTeXN0ZW0uQ29tcG9uZW50TW9kZWwA
+RWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZVN0YXRlAFN5c3RlbS5Db2Rl
+RG9tLkNvbXBpbGVyAEdlbmVyYXRlZENvZGVBdHRyaWJ1dGUAU3lzdGVtLkRpYWdub3N0aWNzAERl
+YnVnZ2VySGlkZGVuQXR0cmlidXRlAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5Db21waWxlclNlcnZp
+Y2VzAFN0YW5kYXJkTW9kdWxlQXR0cmlidXRlAEhpZGVNb2R1bGVOYW1lQXR0cmlidXRlAFN5c3Rl
+bS5Db21wb25lbnRNb2RlbC5EZXNpZ24ASGVscEtleXdvcmRBdHRyaWJ1dGUAU3lzdGVtLlJ1bnRp
+bWUuQ29tcGlsZXJTZXJ2aWNlcwBSdW50aW1lSGVscGVycwBHZXRPYmplY3RWYWx1ZQBSdW50aW1l
+VHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBBY3RpdmF0b3IAQ3JlYXRlSW5zdGFuY2UATXlH
+cm91cENvbGxlY3Rpb25BdHRyaWJ1dGUAc2V0X1ZhbHVlAFN5c3RlbS5SdW50aW1lLkludGVyb3BT
+ZXJ2aWNlcwBDb21WaXNpYmxlQXR0cmlidXRlAEdldFVJbnQzMgBJc051bGwAc2V0X0l0ZW0AU2V0
+TnVsbABJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAENMU0NvbXBsaWFudEF0dHJpYnV0ZQBTdHJp
+bmcAU3RyaW5nQ29tcGFyaXNvbgBHZXRDb2x1bW5JbmRleGVzAFNTSVNTY3JpcHRDb21wb25lbnRF
+bnRyeVBvaW50QXR0cmlidXRlAFN5c3RlbS5SZWZsZWN0aW9uAEFzc2VtYmx5AGdldF9Bc3NlbWJs
+eQBTeXN0ZW0uVGhyZWFkaW5nAE1vbml0b3IARW50ZXIARXhpdABEZWJ1Z2dlck5vblVzZXJDb2Rl
+QXR0cmlidXRlAFNDX2MwZDNkZTc5ZGYwYzQyMDI4NGI1ZDEyYmVmNmQ0ZWEyLlJlc291cmNlcy5y
+ZXNvdXJjZXMAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJp
+bGl0eUF0dHJpYnV0ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRhcmdldEZyYW1ld29ya0F0
+dHJpYnV0ZQBBc3NlbWJseUZpbGVWZXJzaW9uQXR0cmlidXRlAEd1aWRBdHRyaWJ1dGUAQXNzZW1i
+bHlUcmFkZW1hcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAQXNzZW1ibHlQ
+cm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0
+aW9uQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAU0NfYzBkM2RlNzlkZjBjNDIwMjg0
+YjVkMTJiZWY2ZDRlYTIuZGxsAAAAgL1MAGEAIABwAHIAbwBwAGkAZQBkAGEAZAAgAEkAcwBOAHUA
+bABsACAAbgBvACAAcAB1AGUAZABlACAAZQBzAHQAYQBiAGwAZQBjAGUAcgBzAGUAIABlAG4AIABG
+AGEAbABzAGUALgAgAEUAbgAgAHMAdQAgAGwAdQBnAGEAcgAsACAAYQBzAGkAZwBuAGUAIAB1AG4A
+IAB2AGEAbABvAHIAIABhACAAbABhACAAYwBvAGwAdQBtAG4AYQAuAAATRQBuAHQAcgBhAGQAYQAg
+ADAAABsxAGUAcgAgAFQAcgBpAG0AZQBzAHQAcgBlAAAbMgBkAG8AIABUAHIAaQBtAGUAcwB0AHIA
+ZQAAGzMAZQByACAAVAByAGkAbQBlAHMAdAByAGUAABs0AHQAbwAgAFQAcgBpAG0AZQBzAHQAcgBl
+AAALRQBuAGUAcgBvAAAPRgBlAGIAcgBlAHIAbwAAC00AYQByAHoAbwAAC0EAYgByAGkAbAAACU0A
+YQB5AG8AAAtKAHUAbgBpAG8AAAtKAHUAbABpAG8AAA1BAGcAbwBzAHQAbwAAFVMAZQBwAHQAaQBl
+AG0AYgByAGUAAA9PAGMAdAB1AGIAcgBlAAATTgBvAHYAaQBlAG0AYgByAGUAABNEAGkAYwBpAGUA
+bQBiAHIAZQAAMU0AeQAuAFIAZQBzAG8AdQByAGMAZQBzAC4ATQB5AFIAZQBzAG8AdQByAGMAZQBz
+AAAxnzanNYyiRbWaKwCy0HDeAAi3elxWGTTgiQiwP19/EdUKOgMgAAEDAAABBAAAEgwHBhUSGAES
+DAQAABIIBwYVEhgBEggEAAASEQcGFRIYARIRBAAAEhQHBhUSGAESFAQIABIMBAgAEggECAASEQQI
+ABIUBCABAhwDIAAIBCAAEhUDIAAOAh4ABxABAR4AHgAHMAEBARAeAAITAAQgABMABwYVEhkBEwAE
+KAATAAiJhF3NgIDMkQkgAwESIR0IEiUDIAAJAyAAAgQgAQEOBCABAQIDKAAJAygAAgMoAA4DBhIk
+AwYSKAkgBAEIDhIhEiUFIAEBEhwDBhIpBSABARIpAwYSLQMGEjEEAAASLQQAABIxBQABARIxBAgA
+Ei0ECAASMQMGEjQCBhwEAAASNAQIABI0BSABARE9CAEAAQAAAAAABSACAQ4OGAEACk15VGVtcGxh
+dGUIMTAuMC4wLjAAAAQBAAAABhUSGAESDAYVEhgBEggGFRIYARIRBhUSGAESFAQHARIMBAcBEggE
+BwESEQQHARIUEwEADk15LldlYlNlcnZpY2VzAAAQAQALTXkuQ29tcHV0ZXIAAAwBAAdNeS5Vc2Vy
+AAATAQAOTXkuQXBwbGljYXRpb24AAAQAARwcAwcBAgMHAQgGAAESFRFZBAcBEhUDBwEOBRABAB4A
+BAoBHgAEBwEeAAcgBAEODg4OYQEANFN5c3RlbS5XZWIuU2VydmljZXMuUHJvdG9jb2xzLlNvYXBI
+dHRwQ2xpZW50UHJvdG9jb2wSQ3JlYXRlX19JbnN0YW5jZV9fE0Rpc3Bvc2VfX0luc3RhbmNlX18A
+AAAGFRIYARMABhUSGQETAAQKARMABSABARMACAcDEwATABMABQEAAAAAAwYSIQMGHQgEIAEJCAMH
+AQkEIAECCAUgAgEIHAQgAQEIBiACAg4RdQUgAR0ICAQHAggIBCAAEn0GIAIBDhJ9BgcCEi0SLQQH
+ARIxCAEAAgAAAAAABAABARwEBwESNAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRo
+cm93cwFHAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjABAFQOFEZyYW1ld29ya0Rpc3BsYXlO
+YW1lEC5ORVQgRnJhbWV3b3JrIDQMAQAHMS4wLjAuMAAAKQEAJDliYzQyNjViLTllMGMtNDUzMi1i
+YzYwLWQ4YzkyNDI5ZTE4NAAABQEAAQAAFgEAEUNvcHlyaWdodCBAICAyMDEzAAAoAQAjU0NfYzBk
+M2RlNzlkZjBjNDIwMjg0YjVkMTJiZWY2ZDRlYTIAAAAAsEEAAAAAAAAAAAAAzkEAAAAgAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAMBBAAAAAAAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxs
+AAAAAAD/JQAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAA
+AAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWGAA
+AIADAAAAAAAAAAAAAIADNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+
+AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBh
+AHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAAAAAA
+sATgAgAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAC8AgAAAQAwADAAMAAwADAANABi
+ADAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBDAF8AYwAwAGQA
+MwBkAGUANwA5AGQAZgAwAGMANAAyADAAMgA4ADQAYgA1AGQAMQAyAGIAZQBmADYAZAA0AGUAYQAy
+AAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAwAAAAcAAoAAEA
+SQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwBjADAAZAAzAGQAZQA3ADkAZABmADAAYwA0
+ADIAMAAyADgANABiADUAZAAxADIAYgBlAGYANgBkADQAZQBhADIALgBkAGwAbAAAAEgAEgABAEwA
+ZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgACAAMgAw
+ADEAMwAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUAAABTAEMAXwBjADAA
+ZAAzAGQAZQA3ADkAZABmADAAYwA0ADIAMAAyADgANABiADUAZAAxADIAYgBlAGYANgBkADQAZQBh
+ADIALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBDAF8AYwAwAGQA
+MwBkAGUANwA5AGQAZgAwAGMANAAyADAAMgA4ADQAYgA1AGQAMQAyAGIAZQBmADYAZAA0AGUAYQAy
+AAAANAAIAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAADgA
+CAABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAMAAAA4DEAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del proyecto de Microsoft Visual Studio Tools para Aplicaciones. Los nombres de proyecto deben ser únicos en el paquete."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_c0d3de79df0c420284b5d12bef6d4ea2</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el lenguaje de programación que utiliza el script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages, Microsoft.SqlServer.VSTAScriptingLib, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">VisualBasic</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una lista separada por comas de variables de sólo lectura."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una lista separada por comas de variables de lectura/escritura."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Lista de puntos de interrupción presentes en el script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Suma de comprobación para comparar los metadatos del componente con los códigos compilados."
+                  name="MetadataChecksum"
+                  typeConverter="NOTBROWSABLE">1b5753e9c8edd5fbfbee48fdb88f540a</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Poblar_Tiempo_Stg\Componente de script.Inputs[Entrada 0]"
+                  hasSideEffects="true"
+                  name="Entrada 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Componente de script.Inputs[Entrada 0].Columns[nMes]"
+                      cachedDataType="ui4"
+                      cachedName="nMes"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nMes]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Componente de script.Inputs[Entrada 0].Columns[nTrimestre]"
+                      cachedDataType="ui4"
+                      cachedName="nTrimestre"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nTrimestre]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0]"
+                  name="Salida 0"
+                  synchronousInputId="Package\Poblar_Tiempo_Stg\Componente de script.Inputs[Entrada 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0].Columns[cMes]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0].Columns[cMes]"
+                      name="cMes" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0].Columns[cTrimestre]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0].Columns[cTrimestre]"
+                      name="cTrimestre" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Poblar_Tiempo_Stg\Conversión de datos"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[fecha]"
+                      cachedDataType="date"
+                      cachedName="fecha"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[dia]"
+                      cachedDataType="r8"
+                      cachedName="dia"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[dia]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[mes]"
+                      cachedDataType="r8"
+                      cachedName="mes"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[mes]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[trimestre]"
+                      cachedDataType="r8"
+                      cachedName="trimestre"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[trimestre]" />
+                    <inputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[año]"
+                      cachedDataType="r8"
+                      cachedName="año"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[año]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nFecha]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nFecha]"
+                      name="nFecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[fecha]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nDia]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nDia]"
+                      name="nDia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[dia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nMes]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nMes]"
+                      name="nMes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[mes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nTrimestre]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nTrimestre]"
+                      name="nTrimestre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[trimestre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nAño]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nAño]"
+                      name="nAño"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[año]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Leer_VentasMP-95_Tiempo"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Tiempo$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[fecha]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[fecha]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[dia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[dia]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[dia]"
+                      name="dia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[mes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[mes]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[mes]"
+                      name="mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[trimestre]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[trimestre]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[trimestre]"
+                      name="trimestre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[año]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[año]"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].Columns[año]"
+                      name="año"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[fecha]"
+                      dataType="date"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[dia]"
+                      dataType="r8"
+                      name="dia" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[mes]"
+                      dataType="r8"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[trimestre]"
+                      dataType="r8"
+                      name="trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel].ExternalColumns[año]"
+                      dataType="r8"
+                      name="año" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[fecha]"
+                      dataType="date"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[dia]"
+                      dataType="r8"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[dia]"
+                      name="dia" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[mes]"
+                      dataType="r8"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[mes]"
+                      name="mes" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[trimestre]"
+                      dataType="r8"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[trimestre]"
+                      name="trimestre" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[año]"
+                      dataType="r8"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[año]"
+                      name="año" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Poblar_Tiempo_Stg.Paths[Salida 0]"
+              endId="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg.Inputs[Entrada de destino de OLE DB]"
+              name="Salida 0"
+              startId="Package\Poblar_Tiempo_Stg\Componente de script.Outputs[Salida 0]" />
+            <path
+              refId="Package\Poblar_Tiempo_Stg.Paths[Salida de conversión de datos]"
+              endId="Package\Poblar_Tiempo_Stg\Componente de script.Inputs[Entrada 0]"
+              name="Salida de conversión de datos"
+              startId="Package\Poblar_Tiempo_Stg\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Poblar_Tiempo_Stg.Paths[Salida de origen de Excel]"
+              endId="Package\Poblar_Tiempo_Stg\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="sql11">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Poblar_Cliente_Stg"
+          TopLeft="50,33" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Poblar_Tiempo_Stg"
+          TopLeft="253,33" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Poblar_Cliente_Stg">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Poblar_Cliente_Stg\Conversión de datos"
+          TopLeft="35,95" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg"
+          TopLeft="40,172" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Poblar_Cliente_Stg\Leer_Clientes"
+          TopLeft="48,25" />
+        <EdgeLayout
+          Id="Package\Poblar_Cliente_Stg.Paths[Salida de origen de Excel]"
+          TopLeft="121.25,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Poblar_Cliente_Stg.Paths[Salida de conversión de datos]"
+          TopLeft="124,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Poblar_Cliente_Stg\Cargar_Cliente_Stg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Poblar_Cliente_Stg\Leer_Clientes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Poblar_Tiempo_Stg">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo"
+          TopLeft="51,26" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Poblar_Tiempo_Stg\Conversión de datos"
+          TopLeft="70,108" />
+        <EdgeLayout
+          Id="Package\Poblar_Tiempo_Stg.Paths[Salida de origen de Excel]"
+          TopLeft="156.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Poblar_Tiempo_Stg\Componente de script"
+          TopLeft="64,189" />
+        <EdgeLayout
+          Id="Package\Poblar_Tiempo_Stg.Paths[Salida de conversión de datos]"
+          TopLeft="156.75,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg"
+          TopLeft="71,280" />
+        <EdgeLayout
+          Id="Package\Poblar_Tiempo_Stg.Paths[Salida 0]"
+          TopLeft="156.5,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Poblar_Tiempo_Stg\Leer_VentasMP-95_Tiempo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Poblar_Tiempo_Stg\Cargar_Tiempo_Stg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,38 @@
+
+        Select Case CType(Row.nTrimestre, Integer)
+            Case 1
+                Row.cTrimestre = "1er Trimestre"
+            Case 2
+                Row.cTrimestre = "2do Trimestre"
+            Case 3
+                Row.cTrimestre = "3er Trimestre"
+            Case 4
+                Row.cTrimestre = "4to Trimestre"
+        End Select
+
+        Select Case CType(Row.nMes, Integer)
+            Case 1
+                Row.cMes = "Enero"
+            Case 2
+                Row.cMes = "Febrero"
+            Case 3
+                Row.cMes = "Marzo"
+            Case 4
+                Row.cMes = "Abril"
+            Case 5
+                Row.cMes = "Mayo"
+            Case 6
+                Row.cMes = "Junio"
+            Case 7
+                Row.cMes = "Julio"
+            Case 8
+                Row.cMes = "Agosto"
+            Case 9
+                Row.cMes = "Septiembre"
+            Case 10
+                Row.cMes = "Octubre"
+            Case 11
+                Row.cMes = "Noviembre"
+            Case 12
+                Row.cMes = "Diciembre"
+        End Select

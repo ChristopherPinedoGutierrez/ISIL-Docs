@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "ReporteBasico", "ReporteBasico\ReporteBasico.rptproj", "{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.Debug|Default.ActiveCfg = Debug
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.Debug|Default.Build.0 = DebugLocal
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.Debug|Default.Deploy.0 = DebugLocal
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.DebugLocal|Default.Build.0 = DebugLocal
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.Release|Default.ActiveCfg = Release
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.Release|Default.Build.0 = Release
+		{CE2C42F9-B1FD-43B0-8A4A-BDB9BFD70225}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

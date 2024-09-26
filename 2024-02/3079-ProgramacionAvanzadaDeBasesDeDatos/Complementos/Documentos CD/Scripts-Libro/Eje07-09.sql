@@ -1,0 +1,22 @@
+USE QhatuPERU
+go
+
+SELECT ARTICULO.CodArticulo,
+	ARTICULO.DescripcionArticulo,
+	SUM(GUIA_DETALLE.CantidadEnviada) AS TotalEnviado
+FROM GUIA_DETALLE INNER JOIN ARTICULO
+	ON GUIA_DETALLE.CodArticulo = ARTICULO.CodArticulo
+GROUP BY ARTICULO.CodArticulo,
+	ARTICULO.DescripcionArticulo
+ORDER BY ARTICULO.CodArticulo
+go
+
+SELECT ARTICULO.CodArticulo,
+	ARTICULO.DescripcionArticulo,
+	ISNULL(SUM(GUIA_DETALLE.CantidadEnviada), 0) AS TotalEnviado
+FROM GUIA_DETALLE RIGHT OUTER JOIN ARTICULO
+	ON GUIA_DETALLE.CodArticulo = ARTICULO.CodArticulo
+GROUP BY ARTICULO.CodArticulo,
+	ARTICULO.DescripcionArticulo
+ORDER BY ARTICULO.CodArticulo
+go

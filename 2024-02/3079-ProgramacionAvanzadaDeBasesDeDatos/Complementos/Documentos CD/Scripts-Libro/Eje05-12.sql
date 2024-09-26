@@ -1,0 +1,19 @@
+USE QhatuPERU
+go
+
+SET DATEFORMAT DMY
+go
+
+SELECT NumOrden, FechaOrden
+FROM ORDEN_COMPRA
+go
+
+SELECT NumOrden, FechaOrden
+FROM ORDEN_COMPRA
+WHERE FechaOrden = '11/04/2013'
+go
+
+SELECT NumOrden, FechaOrden
+FROM ORDEN_COMPRA
+WHERE FechaOrden <= '11/04/2013'
+go

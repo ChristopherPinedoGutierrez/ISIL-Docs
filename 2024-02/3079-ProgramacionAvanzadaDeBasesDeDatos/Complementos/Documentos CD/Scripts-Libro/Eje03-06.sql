@@ -1,0 +1,20 @@
+USE QhatuPERU
+go
+
+CREATE TABLE TRANSPORTISTA (
+	CodTransportista     int NOT NULL PRIMARY KEY,
+	NomTransportista     varchar(30) NOT NULL,
+	Direccion            varchar(60) NULL,
+	Telefono             varchar(15) NULL )
+go
+
+INSERT INTO TRANSPORTISTA
+	VALUES(1, 'VELASQUEZ ORTIZ, FRANCISCO', 'Av. Los Alamos 1234 San Luis', '999-123-456')
+INSERT INTO TRANSPORTISTA
+	VALUES(2, 'ALIAGA VIDAL, JEREMIAS', 'Jr. Tarma 456 Callao', '991-234-456')
+INSERT INTO TRANSPORTISTA
+	VALUES(2, 'CASTRO SOLIS, JUAN JOSE', 'Jr. Las Novicias 123 Chorrillos', '993-000-111')
+go
+
+SELECT * FROM TRANSPORTISTA
+go

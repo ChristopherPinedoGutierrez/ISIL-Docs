@@ -3,68 +3,91 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Star Wars - The Rise of Skywalker</title>
-	<link rel="stylesheet" href="style.css">
+	<title>AMD - Products</title>
+	<link rel="stylesheet" href="./styles/main.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>	
-	<header>
-		<img src="images/star-wars-logo.png">
-	</header>
-	<nav>
-		<ul class="topnav">
-			<li><a href="#" class="active">Inicio</a></li>
-			<li><a href="#">Historia</a></li>
-			<li><a href="#">Historia</a></li>
-			<li><a href="#">Historia</a></li>
-			<li><a href="#">Películas</a></li>
-			<li><a href="#">Prensa</a></li>
-		</ul>
-	</nav>
-	<div id="intro">
-		<h1>LA SAGA LLEGA A SU FIN</h1>
-		<p id="parrafo_intro">No te pierdas el estreno de la última película de Star Wars en diciembre.</p>
-		<a class="boton_1" href="#">Ver más</a>
+<body>
+	<div class="nav">
+		<header class="nav__header">
+			<img class="nav__logo" src="images/Logo-AMD-Row.png">
+		</header>
+		<nav class="nav__menu">
+			<ul class="nav__list">
+				<li class="nav__item"><a href="#" class="nav__link nav__link--active">HOME</a></li>
+				<li class="nav__item"><a href="#" class="nav__link">NEWS</a></li>
+				<li class="nav__item"><a href="#" class="nav__link">PRODUCTS</a></li>
+				<li class="nav__item"><a href="#" class="nav__link">SHOP</a></li>
+			</ul>
+		</nav>
+	</div>	
+	<div class="hero">
+		<div class="hero__content">
+			<h1 class="hero__title">Together we advance</h1>
+			<p class="hero__text" id="parrafo_intro">AMD está empujando los límites de la innovación para enfrentar algunos de los desafíos más difíciles del mundo.</p>
+			<a class="hero__button" href="#">Ver más</a>
+		</div>
 	</div>
-	<main>
-		<article>
-			<h2>HISTORIA</h2>
-			<h3>El regreso del Halcón Milenario (al mando de Poe Dameron)</h3>
-			<figure>
-				<img src="images/VF-Falcon.jpg" width="100%">
-				<figcaption>Dameron Poe y su equipo en el Halcón Milenario</figcaption>
-			</figure>
-			<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo <a href="#">Aldus PageMaker</a>, el cual incluye versiones de Lorem Ipsum.</p>
-			<section>
-				<p class="txt-section">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
-			</section>
-			<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como <a href="#">texto de relleno en documentos electrónicos</a>, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
-			<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+	<main class="main">
+		<article class="main__article">
+			<h2 class="main__title">News</h2>
+			<div class="article__content">
+				<h3 class="article__title">Los procesadores para gaming más rápidos del mundo</h3>
+				<figure class="article__image">
+					<img src="images/amd-news-01.jpg" width="100%">
+					<figcaption>AMD Ryzen Processors</figcaption>
+				</figure>
+				<p class="article__text">Solo los procesadores AMD Ryzen™ incluyen modelos con la exclusiva tecnología AMD 3D V-Cache™ para aumentar el rendimiento de las experiencias de juego de forma considerable4. AMD combina sus procesadores de alta gama Ryzen Serie 7000X3D, con hasta impresionantes 144 MB de memoria en chip, junto con los núcleos de procesador más avanzados que puedes obtener en una PC para gaming, de modo que los fanáticos puedan aprovechar la potencia del mejor rendimiento para gaming y creadores en un solo chip. Ninguna carga de trabajo está fuera de los límites con los procesadores AMD Ryzen.</p>
+			</div>
+			<div class="article__content">
+				<h3 class="article__title">AMD Noise Suppression</h3>
+				<figure class="article__image">
+					<img src="images/amd-news-02.jpg" width="100%">
+					<figcaption>AMD advanced technology</figcaption>
+				</figure>
+				<p class="article__text">AMD Noise Suppression reduce el ruido del ambiente a tu alrededor con IA para que el sonido sea más claro y te puedas concentrar mejor, ya sea que estés en una reunión importante o metido de lleno en un juego competitivo.</p>
+			</div>
+
 		</article>
-		<aside>
-			<ul>
-				<li><h3>Películas de la Saga</h3></li>
-				<li><a href="#">Episodio 1: La Amenaza Fantasma</a></li>
-				<li><a href="#">Episodio 2: El Ataque de los Clones</a></li>
-				<li><a href="#">Episodio 3: La Venganza de los Sith</a></li>
-				<li><a href="#">Episodio 4: Una Nueva Esperanza</a></li>
-				<li><a href="#">Episodio 5: El Imperio Contraataca</a></li>
-				<li><a href="#">Episodio 6: El Regreso del Jedi</a></li>
-				<li><a href="#">Episodio 7: El Despertar de la Fuerza</a></li>
-				<li><a href="#">Episodio 8: Los Últimos Jedi</a></li>
-				<li><a href="#">Episodio 9: El Ascenso de los Skywalker</a></li>
-			</ul>
-			<ul>
-				<li><h3>Prensa</h3></li>
-				<li><img src="images/Cover-Rey.jpg" width="100%"></li>
-				<li><img src="images/Cover-Kylo.jpg" width="100%"></li>
-			</ul>
+		<aside class="main__aside">
+			<section class="aside__section">
+				<h2 class="aside__title">Products</h2>
+				<ul class="aside__list">
+					<li class="list__item"><a href="#">CPU - AMD Ryzen™ 9 9950X</a></li>
+					<li class="list__item"><a href="#">CPU - AMD Ryzen™ 7 9700X</a></li>
+					<li class="list__item"><a href="#">CPU - AMD Ryzen™ 5 8600G</a></li>
+					<li class="list__item"><a href="#">CPU - AMD Ryzen™ 3 8300G</a></li>
+					<li class="list__item"><a href="#">GPU - AMD Radeon™ RX 7900 XTX</a></li>
+					<li class="list__item"><a href="#">GPU - AMD Radeon™ RX 7800 XT</a></li>
+					<li class="list__item"><a href="#">GPU - AMD Radeon™ RX 6950 XT</a></li>
+					<li class="list__item"><a href="#">GPU - AMD Radeon™ RX 6800 XT</a></li>
+				</ul>
+			</section>
+			<section class="aside__section">
+				<h2 class="aside__title">Shop</h2>
+				<ul class="aside__shop">
+					<li class="shop__item">
+						<div>
+							<h3>Ryzen Processors</h3>
+							<img src="images/amd-cpu.jpg" width="100%">
+							<figcaption>AMD Ryzen - Gen 9000, 8000, 7000, etc.</figcaption>
+						</div>
+					</li>
+					<li class="shop__item">
+						<div>
+							<h3>Radeon Graphic cards</h3>
+							<img src="images/amd-gpu.jpg" width="100%">
+							<figcaption>AMD Radeon - Gen 7000, 6000, 5000, etc.</figcaption>
+						</div>
+					</li>
+				</ul>
+			</section>
 		</aside>
 	</main>
 	<footer>
-		<p id="text-footer">TM & © Lucasfilm Ltd. All Rights Reserved</p>
+		<p class="footer">AMD © All Rights Reserved - Developed by Christopher Pinedo - ISIL 2024</p>
 	</footer>	
 </body>
 </html>

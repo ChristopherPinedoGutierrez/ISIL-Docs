@@ -1,0 +1,12 @@
+USE QhatuPERU
+go
+
+SELECT NumOrden, FechaOrden
+FROM ORDEN_COMPRA
+WHERE CONVERT(CHAR(10), FechaOrden, 102) <= '2013.04.11'
+go
+
+SELECT NumOrden, FechaOrden
+FROM ORDEN_COMPRA
+WHERE CONVERT(CHAR(10), FechaOrden, 103) <= '11/04/2013'
+go

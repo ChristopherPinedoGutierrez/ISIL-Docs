@@ -1,0 +1,33 @@
+USE QhatuPERU
+go
+
+SELECT GETDATE()
+go
+
+SELECT GETUTCDATE()
+go
+
+SELECT NumOrden, FechaOrden,
+	FechaPago = DATEADD(day, 30, FechaOrden)
+FROM ORDEN_COMPRA
+go
+
+SELECT NumOrden, FechaOrden,
+SemanasTranscurridas =
+	DATEDIFF(week, FechaOrden, GETDATE())
+FROM ORDEN_COMPRA
+go
+
+SELECT DATEPART(month, GETDATE())
+SELECT DATENAME(month, GETDATE())
+go
+
+SELECT DAY(GETDATE())
+SELECT MONTH(GETDATE())
+SELECT YEAR(GETDATE())
+go
+
+SELECT EOMONTH(GETDATE())
+go
+
+	
