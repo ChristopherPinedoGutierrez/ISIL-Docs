@@ -1,0 +1,100 @@
+Cascada
+
+Proyecto Sistema Integrado de Información
+---> Planificación
+		--> Elaboración del Plan de Proyecto
+		--> Hito: Aprobación del Plan de Proyecto  03.04
+---> Análisis
+		--> Elaboración del documento de análisis  04.04
+		--> Hito: Aprobación del Doc. Análisis.     20.05
+---> Diseño
+		--> Elaboración del documento de Diseño.    21.05
+		--> Elaboración del documento de Arquitectura. 
+		--> Elaboración de prototipos del sistema.
+		--> Hito: Aprobación del documento y prototipos.  31.06
+---> Implementación
+		--> Desarrollo del sistema. 01.07
+		--> Pruebas
+		--> Instalación
+		--> Soporte Post-Producción   05.10
+		
+Paralelo
+
+Proyecto Sistema Integrado de Información
+---> Planificación
+		--> Elaboración del Plan de Proyecto
+   	    --> Hito: Aprobación del Plan de Proyecto 15/04
+---> Análisis
+		--> Elaboración del documento de análisis 16/04
+		--> Hito: Aprobación del Doc. Análisis.    20/04
+----> SubProyecto 1 : Módulo X
+	---> Diseño
+		--> Elaboración del documento de Diseño   21/04
+		--> Elaboración de prototipos del sistema
+		--> Hito: Aprobación del documento y prototipos.
+	---> Implementación
+		--> Desarrollo del sistema.
+		--> Pruebas
+----> SubProyecto 2 : Módulo Y
+	---> Diseño
+		--> Elaboración del documento de Diseño   21/04
+		--> Elaboración de prototipos del sistema
+		--> Hito: Aprobación del documento y prototipos.
+	---> Implementación
+		--> Desarrollo del sistema.
+		--> Pruebas
+--> Integración del Sistema
+--> Pruebas Integrales del Sistema
+--> Instalación
+--> Soporte Post-Producción
+
+Iterativo
+Proyecto Sistema Integrado de Información
+---> Planificación
+		--> Elaboración del Plan de Proyecto
+   	    --> Hito: Aprobación del Plan de Proyecto 15/04
+----> SubProyecto 1 : Módulo X
+	---> Análisis
+		--> Elaboración del documento de análisis 16/04
+		--> Hito: Aprobación del Doc. Análisis.    20/04
+	---> Diseño
+		--> Elaboración del documento de Diseño   21/04
+		--> Elaboración de prototipos del sistema
+		--> Hito: Aprobación del documento y prototipos.
+	---> Implementación
+		--> Desarrollo del sistema.
+		--> Pruebas
+	--> Instalación
+	--> Soporte Post-Producción    31/05
+----> SubProyecto 2 : Módulo Y
+	---> Análisis
+		--> Elaboración del documento de análisis 01/06
+		--> Hito: Aprobación del Doc. Análisis.    15/06
+	---> Diseño
+		--> Elaboración del documento de Diseño   
+		--> Elaboración de prototipos del sistema
+		--> Hito: Aprobación del documento y prototipos.
+	---> Implementación
+		--> Desarrollo del sistema.
+		--> Pruebas
+	--> Instalación
+	--> Soporte Post-Producción
+	
+Ágil
+
+--> Planificación
+--> Definición de Product Backlog
+--> Sprint 1
+--------> Definición Sprint Backlog
+--------> Historias de Usuario
+--------> Prototipos
+--------> Desarrollo
+--------> Puesta en Producción (No necesariamente)
+--> Actualización/Priorización de Product Backlog
+--> Sprint 2
+--------> Definición Sprint Backlog
+--------> Historias de Usuario
+--------> Prototipos
+--------> Desarrollo
+--------> Puesta en Producción (No necesariamente)
+
