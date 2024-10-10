@@ -50,6 +50,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+html {
+	scroll-behavior: smooth;
+}
 /* GLOBAL-STYLES */
 body {
 	/* background: url(../images/amd-banner-01.jpg) #000a27 top center no-repeat; */
@@ -105,7 +108,17 @@ li {
 	list-style-type: none;
 	list-style-position: inside;
 }
-
+/* -------- ANIMATIONS  -------- */
+@keyframes slideInRight {
+	from {
+	  transform: translateX(100%); /* Comienza fuera de la pantalla por la derecha */
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0); /* Termina en su posición original */
+	  opacity: 1;
+	}
+  }
 
 /* -------- BLOCKS -------- */
 /* BLOCK-NAVIGATION */
@@ -165,6 +178,9 @@ li {
 .hero__content {
 	max-width: 30%;
 	padding: 0 2rem;
+}
+.hero__content--with-slide {
+	animation: slideInRight 1s ease-in-out;
 }
 .hero__button, .hero__button:visited {
 	border: 1px solid var(--color-brand-02);
@@ -242,6 +258,14 @@ figcaption {
 }
 .shop__item h3 {
 	color: var(--color-text);
+}
+.shop__item--hover img {
+	color: var(--color-text);
+	transition: all 300ms ease;
+}
+.shop__item--hover img:hover {
+	filter: brightness(150%);
+	transform: scale(1.05);
 }
 /* BLOCK-FOOTER */
 footer {

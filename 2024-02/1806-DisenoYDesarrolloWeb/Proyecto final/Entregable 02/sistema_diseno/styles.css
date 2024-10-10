@@ -1,0 +1,256 @@
+* {
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+html {
+	scroll-padding-top: 150px;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: cyan;
+}
+/* == ESTRUCTURA == */
+header {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding: 2% 0 0 0;
+	background-color: #000;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	text-align: center;
+}
+nav {
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
+	padding: 1.4% 2%;
+	background-color: darkgrey;
+}
+main {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	background: grey;
+	display: flex;
+	flex-direction: row;
+}
+section {
+	width: 96%;
+	padding: 2%;
+	background: floralwhite;
+}
+aside {
+	width: 18%;
+}
+main div {
+	width: 82%;
+}
+footer {
+	width: 96%;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 1.5% 2%;
+	background-color: #000414;
+}
+/* == MÓDULOS FLEXBOX == */
+.modulo_main {
+	width: 100%;
+	height: auto;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2%;
+}
+.modulo_1 {
+	width: 96%;
+	height: auto;
+	margin: 0;
+	padding: 2%;
+	background: grey;
+	margin-bottom: 2%;
+}
+.modulo_2 {
+	width: 28%;
+	height: auto;
+	margin-bottom: 2%;
+	padding: 2%;
+	background: grey;
+}
+/* == TIPOGRAFÍAS ==  */
+h1 {
+	font-size: 3em;
+}
+h2 {
+	font-size: 2.5em;
+}
+h3 {
+	font-size: 2.2em;
+}
+h4 {
+	font-size: 1.8em;
+}
+h5 {
+	font-size: 1.4em;
+}
+h6 {
+	font-size: 1.2em;
+}
+p {
+	font-size: 1em;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-bottom: 15px;
+}
+.lead_text {
+	font-size: 1.4em;
+}
+.little_text{
+	font-size: 0.8em;
+	color: #000;
+}
+.footer_text {
+	font-size: 0.8em;
+	color: #fff;
+	margin-bottom: 0;
+}
+/* == ENLACES == */
+a {
+	color: darkcyan;
+	text-decoration: none;
+}
+a:hover {
+	color: #e56700;
+	text-decoration: none;
+}
+/* == BOTONES == */
+.main_btn {
+	display: inline-block;
+	background: blue;
+	color: white;
+	padding: 10px 20px;
+	text-decoration: none;
+	margin: 2% 0;
+}
+.main_btn:hover {
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+/* == TOP MENU == */
+.logo {
+	margin-bottom: 20px;
+}
+.top_menu {
+	width: 96%;
+	display: flex;
+	justify-content: center;
+}
+a.enlace_top_menu:link, a.enlace_top_menu:visited {
+	width: auto;
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #000;
+	text-decoration: none;
+	margin: 0 15px;
+}
+a.enlace_top_menu:hover, a.enlace_top_menu:active {
+	color: #8efff9;
+}
+/* == SIDE MENU == */
+.title-categorias {
+	padding: 20px 30px;
+	border-bottom: 1px solid #2d2d2d;
+	margin-bottom: 0;
+}
+a.enlace_side_menu:link, a.enlace_side_menu:visited {
+	width: auto;
+	font-weight: bold;
+	font-size: 0.9rem;
+	color: #191919;
+	text-decoration: none;
+	padding: 20px 40px;
+	display: block;
+	border-bottom: 1px solid #2d2d2d;
+}
+a.enlace_side_menu:hover, a.enlace_side_menu:active {
+	color: #fff;
+	background-color: #000;
+}
+/* == LINK IMAGES == */
+.boton-imagen {
+	filter: grayscale(100%);
+}
+.boton-imagen:hover {
+	filter: brightness(120%);
+}
+/* == MEDIA QUERIES - TABLET == */
+@media screen and (max-width: 768px) {
+	header, nav, main, .boton-imagen, .top_menu, .enlace_top_menu, footer {
+		width: 100%;
+		padding: 0;
+	}
+	header {
+		padding-top: 3%;
+	}
+	.top_menu, footer {
+		padding: 2% 0;
+	}
+	aside {
+		width: 26%;
+	}
+	main div {
+		width: 74%;
+	}
+	.footer_text {
+		text-align: center;
+	}
+	.modulo_2 {
+		width: 45%;
+		gap: 8%;
+	}
+}
+/* == MEDIA QUERIES - SMARTPHONE == */
+@media screen and (max-width: 425px) {
+	header, nav, main, .boton-imagen, .top_menu, .enlace_top_menu, aside {
+		width: 100%;
+	}
+	header {
+		padding-top: 5%;
+	}
+	.top_menu, a.enlace_top_menu, aside, a.enlace_side_menu, section, main {
+		display: block;
+	}
+	main div {
+		width: 100%;
+	}
+	section, footer {
+		width: 90%;
+		padding: 5%;
+	}
+	a.enlace_top_menu, a.enlace_side_menu {
+		margin: 0;
+		padding: 10px 0;
+	}
+	.top_menu {
+		padding: 0;
+	}
+	.modulo_main {
+		width: 100%;
+		flex-direction: column;
+		align-content: center;
+	}
+	.modulo_1, .modulo_2 {
+		width: 90%;
+		padding: 5%;
+	}
+	.footer_text {
+		text-align: center;
+	}
+}
