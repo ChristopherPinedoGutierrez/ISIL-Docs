@@ -45,13 +45,24 @@ html {
 	scroll-padding-top: 150px;
 }
 body {
-	background: var(--color-primary);
 	font-family: Alexandria;
+	background: var(--color-primary);
 }
+/* -------- ANIMATIONS  -------- */
+@keyframes slideInRight {
+	from {
+	  transform: translateX(100%); /* Comienza fuera de la pantalla por la derecha */
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0); /* Termina en su posición original */
+	  opacity: 1;
+	}
+  }
 /* == ESTRUCTURA == */
 header {
-	height: auto;
-	margin: 0 auto;
+	/* height: auto;
+	margin: 0 auto; */
 	padding: 1rem 0 0 0;
 	background-color: #000;
 	position: sticky;
@@ -61,59 +72,55 @@ header {
 }
 nav {
 	height: auto;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	padding: 1rem 2rem;
 	background-color: var(--color-secondary);
 }
 main {
-	height: auto;
-	margin: 0 auto;
+	/* height: auto; */
+	/* margin: 0 auto; */
 	background: var(--color-light);
 	display: flex;
-	flex-direction: row;
+	/* grid-template-columns: 0.25fr 1fr; */
 }
-section {
+aside {
+	background-color: var(--color-accent);
+	width: 20%;
+}
+main > div {
+	width: 80%;
+}
+main div section {
 	padding: 2rem;
 	background: var(--color-light);
 }
-/* aside {
-	width: 18%;
-}
-main div {
-	width: 82%;
-} */
 footer {
 	/* width: 96%; */
-	height: auto;
-	overflow: hidden;
-	margin: 0 auto;
-	padding: 1rem 2rem;
 	background-color: var(--color-dark);
+	text-align: center;
+	padding: 1rem 2rem;
 }
 /* == MÓDULOS FLEXBOX == */
 .modulo_main {
-	height: auto;
-	padding: 0;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	gap: 2rem;
 }
 .modulo_1 {
-	width: 100%;
-	height: auto;
-	margin: 0;
+	background: var(--color-secondary);
+	grid-column: 1 / -1 ;
 	padding: 2rem;
-	background: var(--color-accent);
-	margin-bottom: 2rem;
+	animation: slideInRight 1s ease-in-out;
 }
 .modulo_2 {
-	width: 100%;
-	height: auto;
-	margin-bottom: 2rem;
-	padding: 2rem;
 	background: var(--color-accent);
+	padding: 2rem;
+	transition: all 300ms ease;
+}
+.modulo_2:hover {
+	transform: scale(1.05);
+	background-color: var(--color-dark);
+	color: var(--color-light);
 }
 /* == TIPOGRAFÍAS ==  */
 h1 {
@@ -215,11 +222,12 @@ a.enlace_side_menu:hover, a.enlace_side_menu:active {
 	background-color: var(--color-dark);
 }
 /* == LINK IMAGES == */
-.boton-imagen {
-	filter: grayscale(100%);
+.boton-imagen {	
+	transition: all 300ms ease;
 }
 .boton-imagen:hover {
-	filter: brightness(120%);
+	filter: grayscale(100%);
+	transform: scale(1.05);
 }
 /* == MEDIA QUERIES - TABLET == */
 @media screen and (max-width: 768px) {
@@ -229,38 +237,43 @@ a.enlace_side_menu:hover, a.enlace_side_menu:active {
 	header {
 		padding-top: 3rem;
 	}
+	aside {
+		width: 30%;
+	}
+	main > div {
+		width: 70%;
+	}
+	.boton-imagen {
+		width: 100%;
+	}
 	.top_menu, footer {
 		padding: 2rem 0;
 	}
-	/* aside {
-		width: 26%;
+	.modulo_main {
+		grid-template-columns: 1fr 1fr;
 	}
-	main div {
-		width: 74%;
-	} */
-	.footer_text {
-		text-align: center;
+	.modulo_1 {
+		padding: 1rem;
 	}
 	.modulo_2 {
-		gap: 2rem;
+		padding: 1rem;
 	}
 }
 /* == MEDIA QUERIES - SMARTPHONE == */
 @media screen and (max-width: 425px) {
-	/* header, nav, main, .boton-imagen, .top_menu, .enlace_top_menu, aside {
-		width: 100%;
-	} */
 	header {
 		padding-top: 2rem;
+	}
+	aside {
+		width: 100%;
+	}
+	main > div {
+		width: 100%;
 	}
 	.top_menu, a.enlace_top_menu, aside, a.enlace_side_menu, section, main {
 		display: block;
 	}
-	/* main div {
-		width: 100%;
-	} */
 	section, footer {
-		/* width: 90%; */
 		padding: 3rem;
 	}
 	a.enlace_top_menu, a.enlace_side_menu {
@@ -271,13 +284,13 @@ a.enlace_side_menu:hover, a.enlace_side_menu:active {
 		padding: 0;
 	}
 	.modulo_main {
-		/* width: 100%; */
-		flex-direction: column;
-		align-content: center;
+		grid-template-columns: 1fr;
 	}
-	.modulo_1, .modulo_2 {
-		width: 100%;
-		padding: 3rem;
+	.modulo_1 {
+		padding: 0.5rem;
+	}
+	.modulo_2 {
+		padding: 0.5rem;
 	}
 	.footer_text {
 		text-align: center;
