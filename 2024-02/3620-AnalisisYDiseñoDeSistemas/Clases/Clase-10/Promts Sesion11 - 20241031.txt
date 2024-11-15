@@ -1,0 +1,150 @@
+Tarea
+
+En equipos lea el caso peluche personalizado
+(está en Material complementario)
+Se solicita, en base al contexto definido, implementar como primera fase, del proyecto de sistema de información, el módulo/proceso relacionado a las ventas. 
+
+1. Diagrame el proceso de Ventas
+   Use https://app.diagrams.net/   (Drawio)
+2. Defina requerimientos (5)
+3. Defina requisitos(5)
+
+-------
+Diagrama de Flujo de Proceso
+Resumen de la notación BPMN
+https://es.scribd.com/document/310286829/Cheatsheet-BPMN-2-0-Business-Process-Model-and-Notation
+
+¿Dónde estamos?
+Planificación->Análisis->Diseño->Implementación
+
+Planificación
+- Plan de desarrollo (metodo, alcance, staff,cronograma, pspto)
+Análisis (Diagrama de Procesos)
+  - Requerimientos
+  - Requisitos (func,no funcionales)
+  - Requisitos Funcionales -> Casos de Uso (Tabla, Narrativa,     Diagrama Gráfica, Prototipo)
+
+    Editor Use Case:https://app.smartdraw.com/editor.aspx?templateId=13ff825d-d6fc-48e3-87c8-3e97af67e832&flags=128#depoId=61654012&credID=-70770648
+
+PPT09-Metodología de trabajo RUP
+---------------------------------
+Tradicional: Planificación->Análisis->Diseño->Implementación
+RUP(fases) : Inicio       ->Elaboración->Construcción->Transición
+  Artefactos (lenguaje UML, ejm: Caso de uso, Diagrama de Clases)
+
+
+P.O.O
+-----
+Objetos->Clases
+   Clase: Atributos (características)
+          Métodos (comportamiento)
+   Objeto es una instancia: Firulais, Fido, Rex
+
+Encapsulación
+Herencia
+Polimorfismo
+-- Python, Java--
+
+
+Ejemplo de Código
+
+En el contexto de la programación orientada a objetos.
+Elabora un código en Python.
+Define una clase llamada Libro, con:
+ - Atributos: titulo, autor, genero, ISBN
+ - Métodos: prestar(),devolver(), mostrarinformacion()
+Crea las instancias o los objetos
+ Objeto Libro1, con
+ titulo="1984", 
+ autor="George Well", 
+ genero="Ciencia Ficción", 
+ ISBN="1234567899"
+ ----------
+https://www.mycompiler.io/es/online-python-compiler
+-----
+En el contexto de la programación orientada a objetos.
+Elabora un código en Java
+Define una clase llamada CuentaBancaria, con:
+ - Atributos: saldo, númerodeCuenta
+   Establece el saldo como atributo privado, el
+   númerodeCuenta como atributo público
+ - Métodos: depositar(cantidad), retirar(cantidad),
+    actualizarsaldo() es un método interno para modificar el saldo.
+Evidencia el concepto de encapsulación.
+-------------
+Herencia
+En el contexto de la programación orientada a objetos.
+Elabora un código en Python.
+Define una clase base o padre llamada Vehiculo, con:
+ - Atributos: marca,modelo,año
+ - Métodos: arrancar(),detener()
+las clases derivadas son:
+Clase derivada Auto
+- Atributos: NumerodePuertas
+- Método: abrirPuertas()
+
+Clase derivada Motocicleta
+- Atributos: TipoDeManillar
+- Método: LevantarRueda()
+
+Crea dos objetos auto1, moto1
+Para evidenciar el concepto de Herencia
+--------------
+basado en el caso anterior,
+vamos a evidenciar polimorfismo
+para ello define el método tocarBocina en la clase base,
+y sobreescribe tocarBocina en las clases derivadas
+Auto y Motocicleta.
+
+----------- Fin POO-----------
+Clase
+Objeto
+Encapsulación
+Herencia
+Polimorfismo
+------------------------------
+ Análisis O.O  - AOO
+
+En el contexto de Análisis Orientado a Objetos
+Para un sistema de gestión de biblioteca
+y en la fase de ANALISIS.
+Define los requisitos funcionales y no funcionales, además 
+de casos de uso,
+en base a las entidades Libro,Usuario y préstamo.
+Elabora un diagrama de casos de uso en formato texto.
+
+--- Diagramas de UML --
+Casos de uso , Use case
+Diagrama de Clases
+
+----
+Análisis
+ Diagrama de Flujo de Procesos, BPMN
+---
+Sigte clase: RUP, Artefactos, Requisitos 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
