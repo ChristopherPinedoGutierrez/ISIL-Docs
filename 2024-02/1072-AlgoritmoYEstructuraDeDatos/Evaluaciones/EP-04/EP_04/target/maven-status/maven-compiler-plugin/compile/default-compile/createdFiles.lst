@@ -1,0 +1,10 @@
+cdpg\ep_04\main\Main.class
+cdpg\ep_04\clases\Nodo.class
+cdpg\ep_04\enums\Medida.class
+cdpg\ep_04\clases\Producto.class
+cdpg\ep_04\enums\Marca.class
+cdpg\ep_04\enums\Ubicacion.class
+cdpg\ep_04\enums\Proveedor.class
+cdpg\ep_04\pila\Pila.class
+cdpg\ep_04\cola\Cola.class
+cdpg\ep_04\enums\Categoria.class
