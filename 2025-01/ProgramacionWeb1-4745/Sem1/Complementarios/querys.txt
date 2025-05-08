@@ -1,0 +1,52 @@
+CREATE DATABASE IF NOT EXISTS usuarios_db;
+USE usuarios_db;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    email VARCHAR(100),
+    edad INT,
+    fecha_registro DATE
+);
+
+INSERT INTO usuarios (nombre, email, edad, fecha_registro) VALUES 
+('Juan Perez', 'juan@gmail.com', 30, '2023-05-01'),
+('Maria Lopez', 'maria@gmail.com', 25, '2024-01-15');
+
+
+-----------------------------------------------------------
+
+
+CREATE DATABASE IF NOT EXISTS productos_db;
+USE productos_db;
+
+CREATE TABLE IF NOT EXISTS productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    descripcion VARCHAR(255),
+    precio DECIMAL(10,2),
+    stock INT
+);
+
+INSERT INTO productos (nombre, descripcion, precio, stock) VALUES 
+('Laptop', 'Portátil de 15 pulgadas', 899.99, 10),
+('Mouse', 'Mouse inalámbrico', 19.99, 50);
+
+---------------------------------------------------------
+
+
+
+CREATE DATABASE IF NOT EXISTS empleados_db;
+USE empleados_db;
+
+CREATE TABLE IF NOT EXISTS empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    puesto VARCHAR(50),
+    salario DECIMAL(10,2),
+    fecha_ingreso DATE
+);
+
+INSERT INTO empleados (nombre, puesto, salario, fecha_ingreso) VALUES 
+('Carlos Gomez', 'Administrador', 3500.00, '2021-07-20'),
+('Ana Ruiz', 'Desarrollador', 4500.50, '2022-03-15');
