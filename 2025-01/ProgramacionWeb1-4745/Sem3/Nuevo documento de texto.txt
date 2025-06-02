@@ -1,0 +1,24 @@
+CREATE DATABASE empresa;
+
+USE empresa;
+
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    edad INT,
+    puesto VARCHAR(100),
+    salario DECIMAL(10,2),
+    status VARCHAR(20)
+);
+
+INSERT INTO empleados (nombre, edad, puesto, salario, status) VALUES
+('Ana Gómez', 30, 'Contadora', 3200.50, 'activo'),
+('Luis Pérez', 45, 'Gerente', 5200.00, 'activo'),
+('María López', 28, 'Asistente', 2100.00, 'inactivo'),
+('Carlos Ruiz', 39, 'Analista', 4000.00, 'activo'),
+('Laura Díaz', 35, 'Diseñadora', 3500.00, 'activo'),
+('José Torres', 42, 'Programador', 4700.00, 'inactivo'),
+('Sandra Méndez', 29, 'Marketing', 3000.00, 'activo'),
+('Pedro León', 38, 'Supervisor', 4100.00, 'activo'),
+('Lucía Vega', 31, 'RH', 3300.00, 'inactivo'),
+('Héctor Mora', 27, 'Soporte', 2900.00, 'activo');
