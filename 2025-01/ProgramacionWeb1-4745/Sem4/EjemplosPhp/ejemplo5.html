@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario con PHP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h3>Enviar datos a PHP con Fetch</h3>
+    <form id="formulario">
+        <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email:</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+    <table class="table mt-4" id="tabla" style="display: none;">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="contenidoTabla"></tbody>
+    </table>
+</div>
+
+<script>
+document.getElementById('formulario').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+
+    fetch('servicio.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        const tabla = document.getElementById('tabla');
+        const cuerpo = document.getElementById('contenidoTabla');
+        cuerpo.innerHTML = `
+            <tr>
+                <td>${data.nombre}</td>
+                <td>${data.email}</td>
+            </tr>
+        `;
+        tabla.style.display = 'table';
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+</body>
+</html>
