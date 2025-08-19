@@ -1,0 +1,195 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+package pe.isil.appwebmarte.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import pe.isil.appwebmarte.model.beans.Producto;
+import pe.isil.appwebmarte.logica_negocio.LN_Producto;
+
+/**
+ *
+ * @author fercho
+ */
+@WebServlet(name = "ProductoController", urlPatterns = {"/admin/productos/*"})
+public class ProductoController extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ProductoController</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ProductoController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        request.setCharacterEncoding("UTF-8");
+        
+        //1. Listar productos y derivar a la pagina productos
+        //1.1 Validar ruta: localhost:8080/marte/admin/productos/listar , con metodo HTTP GET
+        
+        String URL = request.getPathInfo();
+        
+        if (URL.equals("/listar") && !URL.isEmpty() ) {
+            
+            //2. Crear el objeto para accedor a los datos de producto
+            LN_Producto ln_producto = new LN_Producto();
+            ArrayList<Producto> productos = new ArrayList<>();
+            
+            productos = ln_producto.getAll();
+            
+            //3. Crear un atributo en el request que sera envio a la vista
+            request.setAttribute("productos", productos);
+            
+            //4. Redireccionamos a la vista o JSP
+            request.getRequestDispatcher("/productos/index.jsp").forward(request, response);
+        }
+        
+        if (URL.equals("/nuevo")) {
+            //1. Redireccionamos a la vista o JSP
+            request.getRequestDispatcher("/productos/nuevo.jsp").forward(request, response);
+        }
+        
+        //http://localhost:8080/marte/admin/productos/editar/2
+        String ruta[] = URL.split("/");
+        
+        
+        if (ruta[1].equals("editar")) {
+            //Obtenemos el id del curso
+            Integer id = Integer.parseInt(ruta[2]);
+            
+            //Con el id curso obtenemos el registro en la base de datos
+            LN_Producto lnp = new LN_Producto();
+            Producto prod = lnp.getById(id);
+            
+            //Enviar el prod como atributo a la vista edita.jsp
+            request.setAttribute("prod", prod);
+            
+            //1. Redireccionamos a la vista o JSP
+            request.getRequestDispatcher("/productos/editar.jsp").forward(request, response);
+        }
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
+        //obtener la ruta
+        String URL = request.getPathInfo();
+        
+        //validar la ruta de insertar nuevo producto : /add
+        if (URL.equals("/add")) {
+            //obtener los datos o valores enviados desde la vista: nuevo.jsp o el formulario
+            String nombre;
+            String categoria;
+            Double precio;
+            Double stock;
+            
+            nombre = request.getParameter("txtNombre");
+            categoria = request.getParameter("txtCategoria");
+            precio = Double.parseDouble(request.getParameter("txtPrecio"));
+            stock = Double.parseDouble(request.getParameter("txtStock"));
+            
+            Producto producto = new Producto();
+            producto.setNombre(nombre);
+            producto.setCategoria(categoria);
+            producto.setPrecio(precio);
+            producto.setStock(stock);
+            
+            LN_Producto ln_producto = new LN_Producto();
+            ln_producto.add(producto);
+            response.sendRedirect(request.getContextPath() + "/admin/productos/listar");
+        }
+        
+         //Actualizar:http://localhost:8080/marte/admin/productos/editar/4
+        String ruta[] = URL.split("/");
+        
+        
+        if (ruta[1].equals("editar")) {
+             //Obtenemos el id del curso
+            Integer id = Integer.parseInt(ruta[2]);
+            
+            //obtener los datos o valores enviados desde la vista: nuevo.jsp o el formulario
+            String nombre;
+            String categoria;
+            Double precio;
+            Double stock;
+            
+            nombre = request.getParameter("txtNombre");
+            categoria = request.getParameter("txtCategoria");
+            precio = Double.parseDouble(request.getParameter("txtPrecio"));
+            stock = Double.parseDouble(request.getParameter("txtStock"));
+            
+            //Setear o asignar los valores en la entidad Producto
+            Producto prod = new Producto();
+            prod.setId(id);
+            prod.setNombre(nombre);
+            prod.setCategoria(categoria);
+            prod.setPrecio(precio);
+            prod.setStock(stock);
+            
+            //Con el objetco Curso llamamos al update 
+            LN_Producto lnp = new LN_Producto();
+            lnp.update(prod);
+            response.sendRedirect(request.getContextPath() + "/admin/productos/listar");
+        }
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}

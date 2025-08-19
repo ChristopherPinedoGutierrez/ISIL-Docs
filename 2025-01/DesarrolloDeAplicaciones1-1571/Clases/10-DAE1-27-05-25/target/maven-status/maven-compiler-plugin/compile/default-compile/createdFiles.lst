@@ -1,0 +1,6 @@
+pe/isil/appwebmarte/resources/JavaEE8Resource.class
+pe/isil/appwebmarte/data_access/ConexionDB.class
+pe/isil/appwebmarte/controller/ProductoController.class
+pe/isil/appwebmarte/beans/Producto.class
+pe/isil/appwebmarte/JAXRSConfiguration.class
+pe/isil/appwebmarte/data_access/AD_Producto.class

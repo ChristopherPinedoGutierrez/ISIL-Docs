@@ -1,0 +1,12 @@
+pe/isil/appwebmarte/model/beans/Producto.class
+pe/isil/appwebmarte/model/data_access/AD_Usuario.class
+pe/isil/appwebmarte/model/data_access/AD_Producto.class
+pe/isil/appwebmarte/resources/JavaEE8Resource.class
+pe/isil/appwebmarte/logica_negocio/LN_Producto.class
+pe/isil/appwebmarte/model/beans/Usuario.class
+pe/isil/appwebmarte/JAXRSConfiguration.class
+pe/isil/appwebmarte/logica_negocio/LN_Usuario.class
+pe/isil/appwebmarte/controller/LoginController.class
+pe/isil/appwebmarte/controller/ProductoController.class
+pe/isil/appwebmarte/controller/UsuarioRegistroController.class
+pe/isil/appwebmarte/model/data_access/ConexionDB.class
